@@ -1,0 +1,6 @@
+{
+  "name": "BuildCraft - Modern Construction",
+  "description": "Professional construction company specializing in residential, commercial, and industrial engineering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

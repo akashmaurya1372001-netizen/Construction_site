@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #0c0e12;
+    color: #f3f4f6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Blueprint Grid Pattern */
+.bg-blueprint-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(245, 158, 11, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 158, 11, 0.08) 1px, transparent 1px);
+}
+
+.bg-blueprint-dense {
+  background-size: 16px 16px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+/* Blueprint Line Drawing Overlay Effect */
+.blueprint-overlay {
+  background: 
+    radial-gradient(circle at center, transparent 30%, rgba(12, 14, 18, 0.85) 90%),
+    linear-gradient(to right, rgba(245, 158, 11, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 158, 11, 0.15) 1px, transparent 1px);
+  background-size: 100% 100%, 24px 24px, 24px 24px;
+}
+
+/* Measuring Tape Ticks Pattern */
+.measuring-tape-ticks {
+  background: repeating-linear-gradient(
+    90deg,
+    #181a20 0px,
+    #181a20 1px,
+    transparent 1px,
+    transparent 8px
+  );
+}
+
+.measuring-tape-ticks-major {
+  background: repeating-linear-gradient(
+    90deg,
+    #0c0e12 0px,
+    #0c0e12 2px,
+    transparent 2px,
+    transparent 32px
+  );
+}

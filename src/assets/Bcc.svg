@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <rect width="1200" height="900" fill="#ffffff"/>
+
+  <!-- BCC / building monogram -->
+  <g transform="translate(245 95)">
+    <!-- building towers -->
+    <path d="M55 310V115L110 78V310Z" fill="#20252b"/>
+    <path d="M125 280V48L180 10V280Z" fill="#20252b"/>
+
+    <!-- B -->
+    <path d="M195 35H315C365 35 398 61 398 101C398 126 385 145 363 156
+             C393 166 412 190 412 224C412 272 376 300 322 300H195V35ZM251 86V139H310
+             C330 139 341 129 341 112C341 95 330 86 310 86H251ZM251 190V249H317
+             C339 249 351 238 351 219C351 200 339 190 317 190H251Z"
+          fill="#20252b"/>
+
+    <!-- C -->
+    <path d="M500 35C428 35 385 88 385 168C385 248 428 300 500 300
+             C541 300 574 284 600 255L560 216C544 234 526 245 504 245
+             C466 245 444 216 444 168C444 120 466 91 504 91C526 91 544 102 560 120
+             L600 81C574 51 541 35 500 35Z" fill="#20252b"/>
+
+    <!-- C -->
+    <path d="M690 35C618 35 575 88 575 168C575 248 618 300 690 300
+             C731 300 764 284 790 255L750 216C734 234 716 245 694 245
+             C656 245 634 216 634 168C634 120 656 91 694 91C716 91 734 102 750 120
+             L790 81C764 51 731 35 690 35Z" fill="#20252b"/>
+
+    <!-- orange house/roof integrated with monogram -->
+    <path d="M45 325L225 190L405 325H350L225 231L100 325Z" fill="#f5a623"/>
+    <path d="M190 72L225 95V160L190 184Z" fill="#f5a623"/>
+
+    <!-- window -->
+    <g fill="#20252b">
+      <rect x="196" y="250" width="25" height="25"/>
+      <rect x="229" y="250" width="25" height="25"/>
+      <rect x="196" y="283" width="25" height="25"/>
+      <rect x="229" y="283" width="25" height="25"/>
+    </g>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="600" y="585" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif" font-size="118"
+        font-weight="900" letter-spacing="4" fill="#20252b">BADHANTI</text>
+
+  <!-- Tagline -->
+  <line x1="170" y1="655" x2="245" y2="655" stroke="#f5a623" stroke-width="8"/>
+  <text x="600" y="668" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif" font-size="36"
+        font-weight="500" letter-spacing="8" fill="#20252b">CONSTRUCTION CONTRACTOR</text>
+  <line x1="955" y1="655" x2="1030" y2="655" stroke="#f5a623" stroke-width="8"/>
+</svg>
