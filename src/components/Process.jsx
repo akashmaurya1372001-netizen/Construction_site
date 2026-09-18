@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import { PROCESS_STEPS } from '../data/constructionData.js';
 import { CheckCircle2, ChevronRight, Ruler } from 'lucide-react';
 
@@ -10,7 +10,7 @@ export const Process = () => {
     <section id="process" className="py-20 bg-stone-950 text-stone-100 border-b border-stone-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* Section Header 
         <div className="max-w-2xl mb-16">
           <div className="inline-flex items-center space-x-2 text-amber-400 font-mono text-xs uppercase tracking-widest mb-3">
             <span className="w-8 h-px bg-amber-400" />
@@ -24,9 +24,9 @@ export const Process = () => {
           </p>
         </div>
 
-        {/* Linear Stepper Bar */}
+        {/* Linear Stepper Bar 
         <div className="relative mb-12">
-          {/* Progress track line */}
+          {/* Progress track line 
           <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-stone-800 -translate-y-1/2 z-0" />
           
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 relative z-10">
@@ -58,7 +58,7 @@ export const Process = () => {
           </div>
         </div>
 
-        {/* Selected Stage Deep-Dive Card */}
+        {/* Selected Stage Deep-Dive Card 
         <div className="bg-stone-900 rounded-2xl border border-stone-800 p-6 sm:p-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
@@ -76,7 +76,7 @@ export const Process = () => {
                 {activeStep.description}
               </p>
 
-              {/* Deliverables checklist */}
+              {/* Deliverables checklist 
               <div className="pt-4 border-t border-stone-800 space-y-3">
                 <div className="text-xs font-mono uppercase tracking-wider text-stone-400">
                   Required Milestone Deliverables:
@@ -112,7 +112,7 @@ export const Process = () => {
               </div>
             </div>
 
-            {/* Visual Blueprint / Site Diagram Representation */}
+            {/* Visual Blueprint / Site Diagram Representation *
             <div className="lg:col-span-5 bg-stone-950 p-6 rounded-xl border border-stone-800 text-stone-400 font-mono text-xs space-y-4">
               <div className="flex items-center justify-between border-b border-stone-800 pb-3 text-stone-300 font-bold">
                 <span>SITE LOGBOOK: {activeStep.title.toUpperCase()}</span>
@@ -139,4 +139,4 @@ export const Process = () => {
   );
 };
 
-export default Process;
+export default Process;*/

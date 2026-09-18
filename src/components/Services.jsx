@@ -30,21 +30,19 @@ export const Services = ({ onSelectServiceForQuote }) => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center space-x-2 text-amber-400 font-mono text-xs uppercase tracking-widest mb-3">
+            <div className="inline-flex items-center space-x-2 text-amber-400 font-mono  uppercase tracking-widest mb-3">
               <span className="w-8 h-px bg-amber-400" />
               <span>Capabilities</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Turnkey Construction Services
+               Varanasi Construction Services
             </h2>
             <p className="mt-4 text-stone-300 text-base sm:text-lg">
               Comprehensive general contracting capabilities from initial soil testing and zoning approvals to complete physical delivery.
             </p>
           </div>
 
-          <div className="text-sm font-mono text-stone-400">
-            SHOWING <span className="text-amber-400 font-bold">{SERVICES_DATA.length} CORE DIVISIONS</span>
-          </div>
+          
         </div>
 
         {/* Services Grid */}

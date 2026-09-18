@@ -20,59 +20,25 @@ export const About = () => {
           </p>
         </div>
 
-        {/* Story & Image Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          <div className="lg:col-span-6 space-y-6">
-            <div className="bg-stone-950 p-6 sm:p-8 rounded-2xl border border-stone-800 space-y-4">
-              <h3 className="text-xl font-bold text-amber-400 flex items-center gap-2">
-                <Target className="w-5 h-5" />
-                Our Core Philosophy
-              </h3>
-              <p className="text-stone-300 leading-relaxed text-sm sm:text-base">
-                Construction is not merely assembling concrete and steel; it is the discipline of coordinating hundreds of skilled trades, adhering to mathematical tolerances, and respecting client capital with absolute fiduciary transparency.
-              </p>
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-stone-800/80 text-xs font-mono">
-                <div>
-                  <div className="text-stone-400">FOUNDED</div>
-                  <div className="text-base font-bold text-white">2011 (California)</div>
-                </div>
-                <div>
-                  <div className="text-stone-400">SAFETY RECORD</div>
-                  <div className="text-base font-bold text-emerald-400">0.72 EMR Index</div>
-                </div>
-                <div>
-                  <div className="text-stone-400">LICENSES HELD</div>
-                  <div className="text-base font-bold text-white">Class A & Class B</div>
-                </div>
-                <div>
-                  <div className="text-stone-400">TOTAL SQ FT BUILT</div>
-                  <div className="text-base font-bold text-amber-400">2.4M+ Sq Ft</div>
-                </div>
-              </div>
-            </div>
+        
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="p-5 rounded-xl bg-stone-800/40 border border-stone-700/60">
                 <Users className="w-6 h-6 text-amber-400 mb-2" />
                 <h4 className="font-bold text-white text-base">In-House Engineering</h4>
-                <p className="text-xs text-stone-400 mt-1">
-                  Structural engineers, MEP designers, and project supervisors coordinate directly without costly outsourcing delay.
-                </p>
+    
               </div>
 
               <div className="p-5 rounded-xl bg-stone-800/40 border border-stone-700/60">
                 <FileCheck className="w-6 h-6 text-amber-400 mb-2" />
                 <h4 className="font-bold text-white text-base">Transparent Budgeting</h4>
-                <p className="text-xs text-stone-400 mt-1">
-                  Guaranteed Maximum Price (GMP) contracts with open-book itemization. No hidden fees or surprise change orders.
-                </p>
+                
               </div>
             </div>
           </div>
 
           {/* Right Imagery */}
-          <div className="lg:col-span-6">
+         {/* <div className="lg:col-span-6">
             <div className="relative">
               <img
                 src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80"
@@ -85,11 +51,11 @@ export const About = () => {
                 <div className="text-[11px] text-stone-900 mt-0.5">Across all 50 US States</div>
               </div>
             </div>
-          </div>
+          </div>*/} 
 
-        </div>
+        
 
-      </div>
+      
     </section>
   );
 };

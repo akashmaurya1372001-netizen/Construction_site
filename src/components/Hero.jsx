@@ -22,19 +22,12 @@ export const Hero = ({ onExploreServices, onRequestQuote }) => {
           
           {/* Main Hero Copy */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono tracking-wider uppercase">
-              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-              
-            </div>
-
+           
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-stone-100 leading-[1.1]">
                Neev — Hamara <span className="text-amber-400 underline decoration-amber-500/40 decoration-wavy decoration-2"> Ghar Aapka</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-stone-300 max-w-2xl font-normal leading-relaxed">
-              Precision engineering, master architectural craft, and turnkey project execution for commercial, residential, and industrial construction across North America.
-            </p>
-
+           
             {/* Value bullets */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-sm text-stone-300">
               <div className="flex items-center space-x-2">
@@ -51,12 +44,32 @@ export const Hero = ({ onExploreServices, onRequestQuote }) => {
               </div>
               <div className="flex items-center space-x-2">
                 <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>10-year comprehensive structural warranty</span>
+                <span>10-year  Experiance</span>
               </div>
             </div>
 
-            {/* CTAs */}
-            <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            
+
+            {/* Trust Badges */}
+            <div className="pt-5 border-stone-800/80 flex flex-wrap items-center gap-16 text-stone-400  font-mono gap-4">
+              <div className="flex items-center space-x-2">
+                <ShieldCheck className=" text-emerald-400" />
+                <span>Trusted </span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Award className="w-4 h-4 text-amber-400" />
+                <span>Quality construction </span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <IndianRupee className="w-4 h-4 text-sky-400" />
+                <span>Transparent pricing</span>
+              </div>
+            </div>
+          </div>
+</div>
+
+{/* CTAs */}
+            <div className="pt-9 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <button
                 id="hero-request-quote-btn"
                 onClick={onRequestQuote}
@@ -75,23 +88,7 @@ export const Hero = ({ onExploreServices, onRequestQuote }) => {
               </button>
             </div>
 
-            {/* Trust Badges */}
-            <div className="pt-6 border-t border-stone-800/80 flex flex-wrap items-center gap-6 text-stone-400 text-xs font-mono">
-              <div className="flex items-center space-x-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>Trusted </span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Award className="w-4 h-4 text-amber-400" />
-                <span>Quality construction </span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <IndianRupee className="w-4 h-4 text-sky-400" />
-                <span>Transparent pricing</span>
-              </div>
-            </div>
-          </div>
-</div>
+
         {/* Highlight Stats Bar */}
         <div id="company-stats-strip" className="mt-16 pt-8 border-t border-stone-800/80 grid grid-cols-1 sm:grid-cols-3 gap-6">
           {COMPANY_STATS.map((stat, idx) => (

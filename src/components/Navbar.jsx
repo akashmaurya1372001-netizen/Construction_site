@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { HardHat, Phone, Menu, X, ArrowUpRight } from 'lucide-react';
 import logo from "../assets/Bccwhite.png"
+import { FaWhatsapp, FaInstagram } from "react-icons/fa";
+
 export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -8,9 +10,9 @@ export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
     { id: 'about', label: 'About' },
     { id: 'services', label: 'Services' },
     { id: 'projects', label: 'Projects' },
-    { id: 'process', label: 'Process' },
+   
     { id: 'why-us', label: 'Why Choose Us' },
-    { id: 'testimonials', label: 'Testimonials' },
+    
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -22,7 +24,7 @@ export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
   return (
     <header
       id="site-header"
-      className="sticky top-0 z-40 w-full  backdrop-blur-md border-b border-stone-800 text-stone-100"
+       className="sticky top-1 z-40 w-full bg-stone-900 backdrop-blur-md border-b border-stone-800 text-stone-100"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -51,7 +53,7 @@ export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
                   key={link.id}
                   id={`nav-link-${link.id}`}
                   onClick={() => handleLinkClick(link.id)}
-                  className={`px-3 py-2 rounded-md transition-colors ${
+                  className={`px-3 py-2 rounded-md transition-colors text-xl ${
                     isActive
                       ? 'text-amber-400 bg-stone-800 font-semibold'
                       : 'text-stone-300 hover:text-white hover:bg-stone-800/60'
@@ -63,8 +65,33 @@ export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
             })}
           </nav>
 
+
+          
+
           {/* Action CTAs */}
-          <div className="hidden sm:flex items-center space-x-4">
+          <div className="hidden sm:flex items-center space-x-5 ml-auto">
+            
+                {/* WhatsApp */}
+                <a
+                  href="https://wa.me/918756327246"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  className="
+                    inline-flex
+                    items-center
+                    justify-center
+                    text-2xl
+                    sm:text-3xl
+                    text-green-500
+                    hover:text-green-400
+                    hover:-translate-y-0.5
+                    transition-all
+                 
+                  "
+                >
+                  <FaWhatsapp className=''/>
+                </a>
             <a
               id="header-phone-cta"
               href="Mob:8756327246"
@@ -86,15 +113,11 @@ export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
             </button>
           </div>
 
+
           {/* Mobile hamburger button */}
-          <div className="flex lg:hidden items-center space-x-2">
-            <button
-              id="header-quote-btn-mobile"
-              onClick={onOpenQuote}
-              className="bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold px-3 py-1.5 rounded-md text-xs uppercase"
-            >
-              Quote
-            </button>
+          <div className="flex lg:hidden items-center space-x-2 gap-2">
+           
+            
             <button
               id="mobile-menu-toggle-btn"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -106,6 +129,8 @@ export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
           </div>
         </div>
       </div>
+
+      
 
       {/* Mobile Menu dropdown */}
       {mobileMenuOpen && (
@@ -127,7 +152,7 @@ export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
               className="flex items-center space-x-2 text-stone-300 px-3 py-2 font-mono text-sm"
             >
               <Phone className="w-4 h-4 text-amber-400" />
-              <span>+1 (800) 555-BUILD</span>
+              <span>+91 8756327246</span>
             </a>
             <button
               id="mobile-drawer-quote-btn"
@@ -137,7 +162,7 @@ export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
               }}
               className="w-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-black py-3 rounded-lg text-center uppercase tracking-wider"
             >
-              Request a Formal Quote
+      Construction inquiry
             </button>
           </div>
         </div>

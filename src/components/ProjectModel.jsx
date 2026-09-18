@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+/*import React, { useEffect } from 'react';
 import { X, MapPin, Calendar, Maximize2, ShieldCheck, UserCheck } from 'lucide-react';
 
 export const ProjectModal = ({ project, onClose, onOpenQuote }) => {
@@ -22,7 +22,7 @@ export const ProjectModal = ({ project, onClose, onOpenQuote }) => {
         className="relative w-full max-w-3xl bg-stone-900 border border-stone-700 rounded-2xl overflow-hidden shadow-2xl text-stone-100 max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header Bar */}
+        {/* Header Bar *
         <div className="flex items-center justify-between px-6 py-4 border-b border-stone-800 bg-stone-950">
           <div className="flex items-center space-x-2">
             <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
@@ -39,7 +39,7 @@ export const ProjectModal = ({ project, onClose, onOpenQuote }) => {
           </button>
         </div>
 
-        {/* Scrollable Content */}
+        {/* Scrollable Content *}
         <div className="overflow-y-auto p-6 space-y-6">
           <div className="relative rounded-xl overflow-hidden border border-stone-800 h-64 sm:h-80">
             <img
@@ -93,7 +93,7 @@ export const ProjectModal = ({ project, onClose, onOpenQuote }) => {
           </div>
         </div>
 
-        {/* Footer actions */}
+        {/* Footer actions *}
         <div className="p-4 bg-stone-950 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-3">
           <span className="text-xs text-stone-400 font-mono">
             Want similar architecture and engineering precision?
@@ -121,4 +121,4 @@ export const ProjectModal = ({ project, onClose, onOpenQuote }) => {
   );
 };
 
-export default ProjectModal;
+export default ProjectModal;*/

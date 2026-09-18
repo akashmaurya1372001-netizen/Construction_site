@@ -18,12 +18,12 @@ export const WhyChooseUs = () => {
         
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
-          <div className="inline-flex items-center space-x-2 text-amber-400 font-mono text-xs uppercase tracking-widest mb-3">
+          <div className="inline-flex items-center space-x-2 text-amber-400 font-mono text- uppercase tracking-widest mb-3">
             <span className="w-8 h-px bg-amber-400" />
             <span>Competitive Advantage</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-            Why Top Developers Choose BuildCraft
+            Why Choose BCC
           </h2>
           <p className="mt-3 text-stone-300 text-base sm:text-lg">
             Our construction standards exceed international building codes. Here are four foundational pillars that define every build.
@@ -65,36 +65,15 @@ export const WhyChooseUs = () => {
                     {item.summary}
                   </p>
 
-                  <p className="text-stone-400 text-xs leading-relaxed">
-                    {item.detail}
-                  </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-stone-800/80 flex items-center justify-between text-xs font-mono text-amber-400">
-                  <span className="flex items-center gap-1">
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    Verified Metric
-                  </span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
-                </div>
+                
               </div>
             );
           })}
         </div>
 
-        {/* Comparison Callout */}
-        <div className="mt-12 bg-stone-950 p-6 sm:p-8 rounded-2xl border border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="space-y-1 text-center sm:text-left">
-            <div className="text-base font-bold text-white">Need custom architectural engineering or specialized heavy foundation?</div>
-            <div className="text-xs text-stone-400">Our structural engineering team is available for preliminary site evaluations and feasibility audits.</div>
-          </div>
-          <a
-            href="#contact"
-            className="shrink-0 px-5 py-3 rounded-lg bg-amber-500 hover:bg-amber-400 text-stone-950 text-xs font-bold font-mono uppercase tracking-wider transition-colors shadow-md"
-          >
-            Consult Our Chief Engineer
-          </a>
-        </div>
+        
 
       </div>
     </section>

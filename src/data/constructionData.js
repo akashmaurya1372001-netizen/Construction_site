@@ -2,17 +2,17 @@ export const COMPANY_STATS = [
   {
     value: '15+',
     label: 'Years Experience',
-    sublabel: 'Delivering excellence since 2011'
+    sublabel: ''
   },
   {
     value: '250+',
     label: 'Projects',
-    sublabel: 'Completed on schedule & budget'
+    sublabel: ''
   },
   {
     value: '35+',
     label: 'Professionals',
-    sublabel: 'Engineers, architects & master builders'
+    sublabel: ''
   }
 ];
 
@@ -22,54 +22,36 @@ export const SERVICES_DATA = [
     title: 'Residential Construction',
     emoji: '🏠',
     iconName: 'Home',
-    summary: 'Custom high-end luxury residences, modern townhomes, and private architectural estates built to endure generations.',
+    summary: '',
     features: ['Custom Home Building', 'Luxury Multi-Family', 'Passive House Standards', 'Smart Home Integration'],
-    specs: 'Turnkey Residential'
+   // specs: ''
   },
   {
     id: 'commercial',
     title: 'Commercial Construction',
     emoji: '🏢',
     iconName: 'Building2',
-    summary: 'State-of-the-art office towers, vibrant retail complexes, and hospitality venues engineered for high foot traffic and commerce.',
+    summary: '',
     features: ['Corporate Headquarters', 'Retail Centers', 'Hospitality & Dining', 'Medical Facilities'],
-    specs: 'LEED Certified Standards'
-  },
-  {
-    id: 'industrial',
-    title: 'Industrial Construction',
-    emoji: '🏗️',
-    iconName: 'Factory',
-    summary: 'Heavy-duty manufacturing plants, high-throughput distribution hubs, cold storage, and complex logistical infrastructure.',
-    features: ['Logistics Hubs', 'Cold Storage Facilities', 'Advanced Manufacturing', 'Heavy Foundation Works'],
-    specs: 'Heavy Load Structural'
-  },
-  {
-    id: 'architecture',
-    title: 'Architecture & Planning',
-    emoji: '📐',
-    iconName: 'Compass',
-    summary: 'End-to-end architectural drafting, 3D BIM modeling, municipal code zoning, and structural feasibility engineering.',
-    features: ['BIM & 3D Modeling', 'Permit Expediting', 'Structural Engineering', 'Site Feasibility Studies'],
-    specs: 'Precision Blueprints'
+   // specs: 'LEED Certified Standards'
   },
   {
     id: 'renovation',
     title: 'Renovation',
     emoji: '🔨',
     iconName: 'Hammer',
-    summary: 'Historic structure restorations, commercial interior retrofits, seismic upgrades, and comprehensive spatial overhauls.',
+    summary: '',
     features: ['Structural Reinforcement', 'Historic Preservation', 'Adaptive Reuse', 'Commercial Tenant Fit-Out'],
-    specs: 'Zero-Downtime Execution'
+    //specs: 'Zero-Downtime Execution'
   },
   {
     id: 'interior',
     title: 'Interior & Finishing',
     emoji: '🛠️',
     iconName: 'Wrench',
-    summary: 'Artisanal architectural millwork, bespoke acoustic ceilings, custom metal fabrication, and luxury surface treatments.',
+    summary: '',
     features: ['Bespoke Millwork', 'Acoustic Ceilings', 'Architectural Glazing', 'Industrial Epoxy & Stone'],
-    specs: 'Sub-Millimeter Tolerances'
+   // specs: 'Sub-Millimeter Tolerances'
   }
 ];
 

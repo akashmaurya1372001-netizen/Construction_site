@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import { TESTIMONIALS_DATA } from '../data/constructionData.js';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
@@ -19,7 +19,7 @@ export const Testimonials = () => {
     <section id="testimonials" className="py-20 bg-stone-950 text-stone-100 border-b border-stone-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* Section Header *}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
             <div className="inline-flex items-center space-x-2 text-amber-400 font-mono text-xs uppercase tracking-widest mb-3">
@@ -34,7 +34,7 @@ export const Testimonials = () => {
             </p>
           </div>
 
-          {/* Carousel Controls */}
+          {/* Carousel Controls *}
           <div className="flex items-center space-x-3">
             <button
               id="testimonial-prev-btn"
@@ -58,12 +58,12 @@ export const Testimonials = () => {
           </div>
         </div>
 
-        {/* Featured Testimonial Card */}
+        {/* Featured Testimonial Card *}
         <div className="relative bg-stone-900 rounded-3xl border border-stone-800 p-8 sm:p-12 overflow-hidden">
           <Quote className="absolute -top-4 -right-4 w-40 h-40 text-stone-800/40 pointer-events-none" />
 
           <div className="relative z-10 max-w-4xl space-y-6">
-            {/* 5 Stars */}
+            {/* 5 Stars /}
             <div className="flex items-center space-x-1 text-amber-400">
               {Array.from({ length: current.rating }).map((_, i) => (
                 <Star key={i} className="w-5 h-5 fill-amber-400" />
@@ -96,7 +96,7 @@ export const Testimonials = () => {
           </div>
         </div>
 
-        {/* Grid Preview of all 3 */}
+        {/* Grid Preview of all 3 /}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           {TESTIMONIALS_DATA.map((t, idx) => (
             <div
@@ -120,4 +120,4 @@ export const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default Testimonials;*/

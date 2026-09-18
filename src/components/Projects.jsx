@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import { PROJECTS_DATA } from '../data/constructionData.js';
 import { ProjectModal } from './ProjectModel.jsx';
 import { Eye, MapPin, Maximize2, ArrowUpRight } from 'lucide-react';
@@ -22,7 +22,7 @@ export const Projects = ({ onOpenQuote }) => {
     <section id="projects" className="py-20 bg-stone-900 text-stone-100 border-b border-stone-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header and Filter Buttons */}
+        {/* Header and Filter Buttons /}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <div className="inline-flex items-center space-x-2 text-amber-400 font-mono text-xs uppercase tracking-widest mb-3">
@@ -37,7 +37,7 @@ export const Projects = ({ onOpenQuote }) => {
             </p>
           </div>
 
-          {/* Filter Pills */}
+          {/* Filter Pills /}
           <div className="flex flex-wrap items-center gap-2 p-1.5 bg-stone-950 rounded-xl border border-stone-800 self-start md:self-auto">
             {categories.map((cat) => (
               <button
@@ -56,7 +56,7 @@ export const Projects = ({ onOpenQuote }) => {
           </div>
         </div>
 
-        {/* Project Grid */}
+        {/* Project Grid *}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
             <div
@@ -65,7 +65,7 @@ export const Projects = ({ onOpenQuote }) => {
               className="group bg-stone-950 rounded-2xl overflow-hidden border border-stone-800 hover:border-stone-700 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                {/* Project Image with hover zoom */}
+                {/* Project Image with hover zoom /}
                 <div className="relative h-64 overflow-hidden bg-stone-900">
                   <img
                     src={project.image}
@@ -82,7 +82,7 @@ export const Projects = ({ onOpenQuote }) => {
                     {project.year}
                   </div>
 
-                  {/* Overlay Quick View Button */}
+                  {/* Overlay Quick View Button /}
                   <button
                     onClick={() => setSelectedProject(project)}
                     className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -94,7 +94,7 @@ export const Projects = ({ onOpenQuote }) => {
                   </button>
                 </div>
 
-                {/* Card Body */}
+                {/* Card Body /}
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
                     {project.name}
@@ -117,7 +117,7 @@ export const Projects = ({ onOpenQuote }) => {
                 </div>
               </div>
 
-              {/* Card Footer */}
+              {/* Card Footer /}
               <div className="px-6 pb-6 pt-2 border-t border-stone-800/80 flex items-center justify-between">
                 <span className="text-[11px] font-mono text-stone-500">
                   Client: {project.client}
@@ -136,7 +136,7 @@ export const Projects = ({ onOpenQuote }) => {
 
       </div>
 
-      {/* Project Details Modal */}
+      {/* Project Details Modal /}
       {selectedProject && (
         <ProjectModal
           project={selectedProject}
@@ -148,4 +148,4 @@ export const Projects = ({ onOpenQuote }) => {
   );
 };
 
-export default Projects;
+export default Projects;*/

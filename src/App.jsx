@@ -4,13 +4,13 @@ import { Hero} from './components/Hero.jsx';
 import { MeasuringTape } from './components/MeasuringTape.jsx';
 import { About } from './components/About.jsx';
 import { Services } from './components/Services.jsx';
-import { Projects } from './components/Projects.jsx';
-import { Process } from './components/Process.jsx';
+//import { Projects } from './components/Projects.jsx';
+//import { Process } from './components/Process.jsx';
 import { WhyChooseUs } from './components/WhyChooseUs.jsx';
-import { Testimonials } from './components/Testimonials.jsx';
+//import { Testimonials } from './components/Testimonials.jsx';
 import { ContactQuote } from './components/ContactQuote.jsx';
 import { Footer } from './components/Footer.jsx';
-
+//import {ChromaticImageCarouselDemo} from './components/Media.jsx'
 export function App() {
   const [activeSection, setActiveSection] = useState('hero');
   const [preselectedService, setPreselectedService] = useState('');
@@ -73,6 +73,7 @@ export function App() {
 
       {/* About Company Section */}
       <About />
+      {/*<ChromaticImageCarouselDemo/>*/}
 
       {/* Services Section */}
       <Services
@@ -82,19 +83,19 @@ export function App() {
       {/* Measuring Tape Graphic Divider */}
       <MeasuringTape label="ARCHITECTURAL ACCREDITED • LEED PLATINUM READY • ZERO DOWNTIME" />
 
-      {/* Featured Projects Gallery*/}  
-         <Projects
+      {/* Featured Projects Gallery*  
+         /*<Projects
         onOpenQuote={(projectName) => handleOpenQuote(`Inquiry: ${projectName}`)}
       />
 
-      {/* Construction Process Stages */}
-      <Process />
+      {/* Construction Process Stages *
+      <Process />*/}
 
       {/* Why Choose Us / Pillars */}
       <WhyChooseUs />
 
-      {/* Testimonials */}
-      <Testimonials />
+      {/* Testimonials *}
+      <Testimonials />*/}
 
       {/* Measuring Tape Graphic Divider */}
       <MeasuringTape label="GUARANTEED MAXIMUM PRICE • OPEN-BOOK TRANSPARENCY • BONDED" />
