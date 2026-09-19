@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   Send,
   CheckCircle2,
@@ -7,15 +6,12 @@ import {
   Mail,
   MapPin,
   Clock,
-  AlertCircle
-} from 'lucide-react';
+  AlertCircle,
+} from "lucide-react";
+import emailjs from "@emailjs/browser";
+import { SERVICES_DATA } from "../data/constructionData.js";
 
-import emailjs from '@emailjs/browser';
-
-import { SERVICES_DATA } from '../data/constructionData.js';
-
-export const ContactQuote = ({ preselectedService = '' }) => {
-
+export const ContactQuote = ({ preselectedService = "" }) => {
   // =========================================================
   // EMAILJS CONFIGURATION
   // =========================================================
@@ -24,30 +20,21 @@ export const ContactQuote = ({ preselectedService = '' }) => {
   const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
   const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-
   // =========================================================
-  // FORM REFERENCE
-  // =========================================================
-
-  const formRef = useRef(null);
-
-
-  // =========================================================
-  // FORM DATA
+  // INITIAL FORM DATA
   // =========================================================
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    serviceType: preselectedService || 'Commercial Construction',
-    projectScope: 'new-build',
-    approxSquareFootage: 2500,
-    estimatedTimeline: '6-12-months',
-    location: '',
-    details: ''
+  const getInitialFormData = () => ({
+    name: "",
+    email: "",
+    phone: "",
+    serviceType: preselectedService || "Commercial Construction",
+    projectScope: "new-build",
+    location: "",
+    details: "",
   });
 
+  const [formData, setFormData] = useState(getInitialFormData);
 
   // =========================================================
   // UI STATES
@@ -55,191 +42,192 @@ export const ContactQuote = ({ preselectedService = '' }) => {
 
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState('');
-
-  const [ticketId, setTicketId] = useState('');
-
+  const [error, setError] = useState("");
+  const [ticketId, setTicketId] = useState("");
 
   // =========================================================
   // UPDATE PRESELECTED SERVICE
   // =========================================================
 
   useEffect(() => {
-
     if (preselectedService) {
-
       setFormData((prev) => ({
         ...prev,
-        serviceType: preselectedService
+        serviceType: preselectedService,
       }));
-
     }
-
   }, [preselectedService]);
-
 
   // =========================================================
   // HANDLE INPUT CHANGE
   // =========================================================
 
   const handleChange = (e) => {
-
     const { name, value } = e.target;
 
     setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
 
-    // Remove previous error when user edits form
     if (error) {
-      setError('');
+      setError("");
     }
-
   };
-
 
   // =========================================================
   // GENERATE TICKET ID
   // =========================================================
 
   const generateTicketId = () => {
-
-    return `BC-${Math.floor(
-      100000 + Math.random() * 900000
-    )}`;
-
+    return `BC-${Math.floor(100000 + Math.random() * 900000)}`;
   };
 
-
   // =========================================================
-  // HANDLE EMAIL SUBMISSION
+  // HANDLE SUBMIT
   // =========================================================
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
 
-    setError('');
+    setError("");
     setSubmitting(true);
 
-
-    // ---------------------------------------------------------
-    // CHECK EMAILJS CONFIGURATION
-    // ---------------------------------------------------------
-
+    // Check EmailJS configuration
     if (
       !EMAILJS_SERVICE_ID ||
       !EMAILJS_TEMPLATE_ID ||
       !EMAILJS_PUBLIC_KEY
     ) {
-
-      console.error(
-        'EmailJS configuration is missing.'
-      );
+      console.error("EmailJS configuration is missing.");
 
       setError(
-        'Email service is not configured correctly. Please try again later.'
+        "Email service is not configured correctly. Please try again later."
       );
 
       setSubmitting(false);
-
       return;
     }
 
-
-    // ---------------------------------------------------------
-    // CREATE TICKET ID
-    // ---------------------------------------------------------
+    // =======================================================
+    // GENERATE TICKET BEFORE SENDING EMAIL
+    // =======================================================
 
     const newTicketId = generateTicketId();
 
+    console.log("Generated Ticket ID:", newTicketId);
 
     try {
+      // =====================================================
+      // SEND EMAIL USING EMAILJS
+      // =====================================================
 
-      // -------------------------------------------------------
-      // SEND FORM USING EMAILJS
-      // -------------------------------------------------------
-
-      await emailjs.sendForm(
+      await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        formRef.current,
         {
-          publicKey: EMAILJS_PUBLIC_KEY
+          // Client information
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          location: formData.location,
+
+          // Project information
+          service_type: formData.serviceType,
+          project_scope: formData.projectScope,
+
+          // Project requirements
+          details: formData.details,
+
+          // Ticket information
+          ticket_id: newTicketId,
+
+          // Company information
+          company_name: "Badhanti Construction Contractors",
+          ticket_type: "Construction Inquiry",
+        },
+        {
+          publicKey: EMAILJS_PUBLIC_KEY,
         }
       );
 
-
-      // -------------------------------------------------------
+      // =====================================================
       // SUCCESS
-      // -------------------------------------------------------
+      // =====================================================
 
       setTicketId(newTicketId);
-
       setSubmitted(true);
 
-      // Optional console confirmation
-      console.log(
-        'Email sent successfully:',
-        newTicketId
-      );
-
-
+      console.log("Email sent successfully");
+      console.log("Ticket ID:", newTicketId);
     } catch (err) {
-
-      // -------------------------------------------------------
-      // ERROR
-      // -------------------------------------------------------
-
-      console.error(
-        'EmailJS Error:',
-        err
-      );
+      console.error("EmailJS Error:", err);
 
       setError(
-        'Unable to send your inquiry right now. Please try again or contact us directly by phone.'
+        "Unable to send your inquiry right now. Please try again or contact us directly by phone."
       );
-
     } finally {
-
       setSubmitting(false);
-
     }
-
   };
-
 
   // =========================================================
   // RESET FORM
   // =========================================================
 
   const handleNewInquiry = () => {
-
     setSubmitted(false);
-    setError('');
+    setSubmitting(false);
+    setError("");
+    setTicketId("");
 
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
+      name: "",
+      email: "",
+      phone: "",
       serviceType:
-        preselectedService ||
-        'Commercial Construction',
-      projectScope: 'new-build',
-      approxSquareFootage: 2500,
-      estimatedTimeline: '6-12-months',
-      location: '',
-      details: ''
+        preselectedService || "Commercial Construction",
+      projectScope: "new-build",
+      location: "",
+      details: "",
     });
-
-    setTicketId('');
-
   };
 
+  // =========================================================
+  // COMMON STYLES
+  // =========================================================
+
+  const inputClassName = `
+    w-full
+    bg-stone-900
+    border
+    border-stone-700
+    rounded-xl
+    px-4
+    py-3
+    text-stone-100
+    text-sm
+    placeholder:text-stone-600
+    focus:outline-none
+    focus:border-amber-400
+    transition-colors
+  `;
+
+  const labelClassName = `
+    block
+    text-xs
+    font-mono
+    uppercase
+    tracking-wider
+    text-stone-400
+    mb-1.5
+  `;
+
+  // =========================================================
+  // RETURN
+  // =========================================================
 
   return (
-
     <section
       id="contact"
       className="
@@ -251,7 +239,6 @@ export const ContactQuote = ({ preselectedService = '' }) => {
         relative
       "
     >
-
       <div
         className="
           max-w-7xl
@@ -261,20 +248,11 @@ export const ContactQuote = ({ preselectedService = '' }) => {
           lg:px-8
         "
       >
-
         {/* =====================================================
             SECTION HEADER
         ====================================================== */}
 
-        <div
-          className="
-            max-w-3xl
-            mb-10
-            sm:mb-12
-            lg:mb-16
-          "
-        >
-
+        <div className="max-w-3xl mb-10 sm:mb-12 lg:mb-16">
           <div
             className="
               inline-flex
@@ -288,17 +266,11 @@ export const ContactQuote = ({ preselectedService = '' }) => {
               sm:text-sm
             "
           >
-
             <span className="w-6 sm:w-8 h-px bg-amber-400" />
 
-            <span>
-              Project Estimation & Inquiry
-            </span>
-
+            <span>Project Estimation & Inquiry</span>
           </div>
-
         </div>
-
 
         {/* =====================================================
             MAIN GRID
@@ -315,8 +287,6 @@ export const ContactQuote = ({ preselectedService = '' }) => {
             items-start
           "
         >
-
-
           {/* ===================================================
               FORM
           ==================================================== */}
@@ -336,14 +306,11 @@ export const ContactQuote = ({ preselectedService = '' }) => {
               min-w-0
             "
           >
-
-
             {/* =================================================
                 SUCCESS MESSAGE
             ================================================== */}
 
             {submitted ? (
-
               <div
                 id="quote-submission-success"
                 className="
@@ -354,7 +321,6 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                   sm:space-y-6
                 "
               >
-
                 <div
                   className="
                     w-16
@@ -370,11 +336,8 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                     mx-auto
                   "
                 >
-
                   <CheckCircle2 className="w-10 h-10" />
-
                 </div>
-
 
                 <h3
                   className="
@@ -387,7 +350,6 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                   Proposal Request Received
                 </h3>
 
-
                 <p
                   className="
                     text-stone-300
@@ -397,23 +359,16 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                     leading-relaxed
                   "
                 >
-
-                  Thank you,{' '}
-
+                  Thank you,{" "}
                   <span className="text-amber-400 font-bold">
-                    {formData.name || 'Client'}
+                    {formData.name || "Client"}
                   </span>
-
-                  . Your inquiry for{' '}
-
+                  . Your inquiry for{" "}
                   <span className="text-stone-100 font-semibold">
                     {formData.serviceType}
-                  </span>
-
-                  {' '}has been successfully sent to our team.
-
+                  </span>{" "}
+                  has been successfully sent to our team.
                 </p>
-
 
                 {/* Ticket */}
                 <div
@@ -430,7 +385,6 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                     text-stone-400
                   "
                 >
-
                   <div>
                     TICKET ID: #{ticketId}
                   </div>
@@ -438,9 +392,7 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                   <div className="text-emerald-400 mt-1">
                     REQUEST SENT SUCCESSFULLY
                   </div>
-
                 </div>
-
 
                 <p
                   className="
@@ -453,7 +405,6 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                   Our team will review your requirements and
                   contact you as soon as possible.
                 </p>
-
 
                 <button
                   type="button"
@@ -474,47 +425,22 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                 >
                   Submit Another Inquiry
                 </button>
-
               </div>
-
             ) : (
-
-
               /* =================================================
-                  FORM
+                 FORM
               ================================================== */
 
               <form
-                ref={formRef}
                 id="quote-calculator-form"
                 onSubmit={handleSubmit}
                 className="space-y-7 sm:space-y-8"
               >
-
-
-                {/* Hidden Company Information */}
-
-                <input
-                  type="hidden"
-                  name="company_name"
-                  value="Badhanti Construction Contractors"
-                  readOnly
-                />
-
-                <input
-                  type="hidden"
-                  name="ticket_type"
-                  value="Construction Inquiry"
-                  readOnly
-                />
-
-
                 {/* =================================================
                     TITLE
                 ================================================== */}
 
                 <div className="flex justify-center">
-
                   <h2
                     className="
                       text-2xl
@@ -529,18 +455,15 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                       decoration-2
                     "
                   >
-                    CONSALTANCY INQUIRY
+                    CONSULTANCY INQUIRY
                   </h2>
-
                 </div>
-
 
                 {/* =================================================
                     ERROR MESSAGE
                 ================================================== */}
 
                 {error && (
-
                   <div
                     className="
                       flex
@@ -555,7 +478,6 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                       text-sm
                     "
                   >
-
                     <AlertCircle
                       className="
                         w-5
@@ -565,32 +487,18 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                       "
                     />
 
-                    <span>
-                      {error}
-                    </span>
-
+                    <span>{error}</span>
                   </div>
-
                 )}
-
 
                 {/* =================================================
                     NAME
                 ================================================== */}
 
                 <div>
-
                   <label
                     htmlFor="name"
-                    className="
-                      block
-                      text-xs
-                      font-mono
-                      uppercase
-                      tracking-wider
-                      text-stone-400
-                      mb-1.5
-                    "
+                    className={labelClassName}
                   >
                     Name *
                   </label>
@@ -604,25 +512,9 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="
-                      w-full
-                      bg-stone-900
-                      border
-                      border-stone-700
-                      rounded-xl
-                      px-4
-                      py-3
-                      text-stone-100
-                      text-sm
-                      placeholder:text-stone-600
-                      focus:outline-none
-                      focus:border-amber-400
-                      transition-colors
-                    "
+                    className={inputClassName}
                   />
-
                 </div>
-
 
                 {/* =================================================
                     EMAIL + PHONE
@@ -630,33 +522,38 @@ export const ContactQuote = ({ preselectedService = '' }) => {
 
                 <div
                   className="
-                    
+                    grid
                     grid-cols-1
                     sm:grid-cols-2
                     gap-5
                     sm:gap-6
-                  
                   "
                 >
-
-                  {/* Email */}
-                  
-
-
-                  {/* Phone */}
                   <div>
+                    <label
+                      htmlFor="email"
+                      className={labelClassName}
+                    >
+                      Email *
+                    </label>
 
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      autoComplete="email"
+                      placeholder="your@email.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className={inputClassName}
+                    />
+                  </div>
+
+                  <div>
                     <label
                       htmlFor="phone"
-                      className="
-                        block
-                        text-xs
-                        font-mono
-                        uppercase
-                        tracking-wider
-                        text-stone-400
-                        
-                      "
+                      className={labelClassName}
                     >
                       Phone Number *
                     </label>
@@ -670,45 +567,19 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                       placeholder="+91 8756327246"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="
-                        w-full
-                        bg-stone-900
-                        border
-                        border-stone-700
-                        rounded-xl
-                        px-4
-                        py-3
-                        text-stone-100
-                        text-sm
-                        placeholder:text-stone-600
-                        focus:outline-none
-                        focus:border-amber-400
-                        transition-colors
-                      "
+                      className={inputClassName}
                     />
-
                   </div>
-
                 </div>
 
-
                 {/* =================================================
-                    ADDRESS
+                    PROJECT ADDRESS
                 ================================================== */}
 
                 <div>
-
                   <label
                     htmlFor="location"
-                    className="
-                      block
-                      text-xs
-                      font-mono
-                      uppercase
-                      tracking-wider
-                      text-stone-400
-                      mb-1.5
-                    "
+                    className={labelClassName}
                   >
                     Project Address *
                   </label>
@@ -722,55 +593,109 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                     placeholder="Enter your project address"
                     value={formData.location}
                     onChange={handleChange}
-                    className="
-                      w-full
-                      bg-stone-900
-                      border
-                      border-stone-700
-                      rounded-xl
-                      px-4
-                      py-3
-                      text-stone-100
-                      text-sm
-                      placeholder:text-stone-600
-                      focus:outline-none
-                      focus:border-amber-400
-                      transition-colors
-                    "
+                    className={inputClassName}
                   />
-
                 </div>
-
 
                 {/* =================================================
                     SERVICE + SCOPE
                 ================================================== */}
 
-               <div className=" grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 " > {/* Service */} <div> <label htmlFor="serviceType" className=" block text-xs font-mono uppercase tracking-wider text-stone-300 mb-2 font-bold " > Construction Service </label> <select id="serviceType" name="service_type" value={formData.serviceType} onChange={handleChange} className=" w-full bg-stone-900 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 text-sm focus:outline-none focus:border-amber-400 " > {SERVICES_DATA.map((service) => ( <option key={service.id} value={service.title} > {service.title} </option> ))} </select> </div> {/* Scope */} <div> <label htmlFor="projectScope" className=" block text-xs font-mono uppercase tracking-wider text-stone-300 mb-2 font-bold " > Scope Type </label> <select id="projectScope" name="project_scope" value={formData.projectScope} onChange={handleChange} className=" w-full bg-stone-900 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 text-sm focus:outline-none focus:border-amber-400 " > <option value="new-build"> New Construction (Ground-Up) </option> <option value="renovation"> Renovation </option> <option value="addition"> Old Construction </option> </select> </div> </div>
+                <div
+                  className="
+                    grid
+                    grid-cols-1
+                    sm:grid-cols-2
+                    gap-5
+                    sm:gap-6
+                  "
+                >
+                  <div>
+                    <label
+                      htmlFor="serviceType"
+                      className="
+                        block
+                        text-xs
+                        font-mono
+                        uppercase
+                        tracking-wider
+                        text-stone-300
+                        mb-2
+                        font-bold
+                      "
+                    >
+                      Construction Service
+                    </label>
 
-                {/* =================================================
-                    SQUARE FOOTAGE + TIMELINE
-                ================================================== */}
+                    <select
+                      id="serviceType"
+                      name="serviceType"
+                      value={formData.serviceType}
+                      onChange={handleChange}
+                      className={inputClassName}
+                    >
+                      {SERVICES_DATA.map((service) => (
+                        <option
+                          key={service.id}
+                          value={service.title}
+                        >
+                          {service.title}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
 
-                
+                  <div>
+                    <label
+                      htmlFor="projectScope"
+                      className="
+                        block
+                        text-xs
+                        font-mono
+                        uppercase
+                        tracking-wider
+                        text-stone-300
+                        mb-2
+                        font-bold
+                      "
+                    >
+                      Scope Type
+                    </label>
+
+                    <select
+                      id="projectScope"
+                      name="projectScope"
+                      value={formData.projectScope}
+                      onChange={handleChange}
+                      className={inputClassName}
+                    >
+                      <option value="new-build">
+                        New Construction (Ground-Up)
+                      </option>
+
+                      <option value="renovation">
+                        Renovation
+                      </option>
+
+                      <option value="old-construction">
+                        Old Construction
+                      </option>
+
+                      <option value="addition">
+                        Extension / Addition
+                      </option>
+                    </select>
+                  </div>
+                </div>
 
                 {/* =================================================
                     MESSAGE
                 ================================================== */}
 
                 <div>
-
                   <label
                     htmlFor="details"
-                    className="
-                      block
-                      text-xs
-                      font-mono
-                      uppercase
-                      tracking-wider
-                      text-stone-400
-                      mb-1.5
-                    "
+                    className={labelClassName}
                   >
                     Message *
                   </label>
@@ -800,9 +725,7 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                       transition-colors
                     "
                   />
-
                 </div>
-
 
                 {/* =================================================
                     SUBMIT
@@ -815,7 +738,6 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                     justify-end
                   "
                 >
-
                   <button
                     type="submit"
                     id="submit-quote-request-btn"
@@ -823,7 +745,7 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                     className="
                       w-full
                       sm:w-auto
-                      min-w-170px
+                      min-w-[170px]
                       inline-flex
                       items-center
                       justify-center
@@ -845,12 +767,9 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                       shadow-lg
                     "
                   >
-
                     {submitting ? (
                       <>
-                        <span>
-                          Sending...
-                        </span>
+                        <span>Sending...</span>
 
                         <span
                           className="
@@ -866,24 +785,16 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                       </>
                     ) : (
                       <>
-                        <span>
-                          Submit
-                        </span>
+                        <span>Submit</span>
 
                         <Send className="w-4 h-4" />
                       </>
                     )}
-
                   </button>
-
                 </div>
-
               </form>
-
             )}
-
           </div>
-
 
           {/* ===================================================
               CONTRACTOR INFORMATION
@@ -896,7 +807,6 @@ export const ContactQuote = ({ preselectedService = '' }) => {
               min-w-0
             "
           >
-
             <div
               className="
                 bg-stone-950
@@ -910,7 +820,6 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                 space-y-6
               "
             >
-
               <h3
                 className="
                   text-base
@@ -920,7 +829,6 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                   uppercase
                   tracking-wider
                   font-mono
-                  mx-27
                   underline
                   underline-offset-7
                   decoration-2
@@ -929,7 +837,6 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                 CONTACTS
               </h3>
 
-
               <div
                 className="
                   space-y-5
@@ -937,10 +844,9 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                   text-stone-300
                 "
               >
-
                 {/* Contractor */}
-                <div className="flex items-start gap-3">
 
+                <div className="flex items-start gap-3">
                   <Clock
                     className="
                       w-5
@@ -952,7 +858,6 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                   />
 
                   <div className="min-w-0">
-
                     <div className="font-bold text-white">
                       CONTRACTOR NAME
                     </div>
@@ -960,15 +865,12 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                     <div className="text-stone-400 mt-0.5 font-bold">
                       MR Badhanti Prasad Maurya
                     </div>
-
                   </div>
-
                 </div>
 
-
                 {/* Phone */}
-                <div className="flex items-start gap-3">
 
+                <div className="flex items-start gap-3">
                   <Phone
                     className="
                       w-5
@@ -980,13 +882,11 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                   />
 
                   <div className="min-w-0">
-
                     <div className="font-bold text-white">
                       CONTACT NO
                     </div>
 
                     <div className="text-stone-400 mt-0.5">
-
                       <a
                         href="tel:+918756327246"
                         className="
@@ -1010,17 +910,13 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                       >
                         +91 6306661981
                       </a>
-
                     </div>
-
                   </div>
-
                 </div>
 
-
                 {/* Email */}
-                <div className="flex items-start gap-3">
 
+                <div className="flex items-start gap-3">
                   <Mail
                     className="
                       w-5
@@ -1032,13 +928,12 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                   />
 
                   <div className="min-w-0">
-
                     <div className="font-bold text-white">
                       MAIL
                     </div>
 
                     <a
-                      href="mailto:akashmaurya1372001@gmail.com"
+                      href="mailto:badhanticonstruction@gmail.com"
                       className="
                         text-stone-400
                         mt-0.5
@@ -1049,17 +944,14 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                         font-bold
                       "
                     >
-                      badhanticonstruction@gamil.com
+                      badhanticonstruction@gmail.com
                     </a>
-
                   </div>
-
                 </div>
 
-
                 {/* Location */}
-                <div className="flex items-start gap-3">
 
+                <div className="flex items-start gap-3">
                   <MapPin
                     className="
                       w-5
@@ -1071,7 +963,6 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                   />
 
                   <div className="min-w-0">
-
                     <div className="font-bold text-white">
                       LOCATION
                     </div>
@@ -1085,29 +976,20 @@ export const ContactQuote = ({ preselectedService = '' }) => {
                       "
                     >
                       Ma Gayatri Nagar Colony,
+                      <br />
                       Chandpur
                       <br />
                       Varanasi, Uttar Pradesh-221106
                     </div>
-
                   </div>
-
                 </div>
-
               </div>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </section>
-
   );
 };
 
 export default ContactQuote;
-

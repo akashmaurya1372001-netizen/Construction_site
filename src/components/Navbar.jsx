@@ -73,7 +73,7 @@ export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
             
                 {/* WhatsApp */}
                 <a
-                  href="https://wa.me/918756327246"
+                  href="https://wa.me/916306661981"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="WhatsApp"
@@ -100,7 +100,7 @@ export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
               <div className="w-8 h-8 rounded-full bg-stone-800 flex items-center justify-center text-amber-400">
                 <Phone className="w-4 h-4" />
               </div>
-              <span className="hidden xl:inline">8756327246</span>
+              <span className="hidden xl:inline">+91 6306661981</span>
             </a>
 
             <button
@@ -148,11 +148,11 @@ export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
           <div className="pt-4 border-t border-stone-800 flex flex-col space-y-3">
             <a
               id="mobile-drawer-phone"
-              href="tel:18005552845"
+              href="tel:6306661981"
               className="flex items-center space-x-2 text-stone-300 px-3 py-2 font-mono text-sm"
             >
               <Phone className="w-4 h-4 text-amber-400" />
-              <span>+91 8756327246</span>
+              <span>+91 6306661981</span>
             </a>
             <button
               id="mobile-drawer-quote-btn"
