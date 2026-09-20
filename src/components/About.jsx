@@ -5,21 +5,22 @@ export const About = () => {
   return (
     <section id="about" className="py-20 bg-stone-900 text-stone-100 border-b border-stone-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className='text-5xl mx-auto font-black sm:text-5xl  tracking-tight m-auto mb-9'>Construction contractor varanasi </div>
+        <div className='text-5xl mx-auto font-black sm:text-5xl  tracking-tight m-auto mb-9 text-center underline underline-offset-5'>Construction contractor varanasi </div>
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center space-x-2 text-amber-400 font-mono text-xs uppercase tracking-widest mb-3">
+        <div className=" mb-16 items-center justify-center">
+          <div className="inline-flex items-center space-x-2 text-amber-400 font-mono  uppercase tracking-widest mb-3">
             <span className="w-8 h-px bg-amber-400" />
-            <span>Company Profile</span>
+            <span>OUR PROFILE</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-            Pioneering Precision & Structural Integrity Since 2011
+          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight text-center">
+            Quality Construction, Trusted Since 1999
           </h2>
-          <p className="mt-4 text-stone-300 text-lg leading-relaxed">
-            Founded by veteran structural engineers and master builders, BuildCraft has transformed urban skylines and crafted custom architectural estates with uncompromising quality standards and full digital transparency.
-          </p>
-        </div>
-
+       
+          <p className="mt-4 px-9  text-stone-300 text-lg leading-relaxed text-center tracking-tight ">
+           We are serving construction work in varanasi since 1999 with a simple goal: to help people in Varanasi build reliable homes without the stress. We are not a massive corporation; we are a dedicated local team that believes in hard work and direct relationships.Over the last two decades, we have built a reputation for honesty and solid brick-and-mortar quality. When you work with us, you deal directly with the people who handle the bricks and cement, ensuring your peace of mind from start to finish.
+            </p>
+       
+</div>
         
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

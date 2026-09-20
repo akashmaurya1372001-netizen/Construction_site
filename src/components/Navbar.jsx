@@ -9,7 +9,7 @@ export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
   const navLinks = [
     { id: 'about', label: 'About' },
     { id: 'services', label: 'Services' },
-    { id: 'projects', label: 'Projects' },
+   // { id: 'projects', label: 'Projects' },
    
     { id: 'why-us', label: 'Why Choose Us' },
     

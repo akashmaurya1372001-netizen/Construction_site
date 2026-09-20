@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 
 import logo from "../assets/Bccwhite.png";
-import { FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { FaWhatsapp, FaInstagram  ,FaFacebook} from "react-icons/fa";
 
 export const Footer = ({ onNavigate }) => {
 
@@ -207,7 +207,7 @@ export const Footer = ({ onNavigate }) => {
                     break-all
                   "
                 >
-                  +91 8756327246
+                  +91 6306661981
                 </a>
 
               </div>
@@ -258,7 +258,7 @@ export const Footer = ({ onNavigate }) => {
 
                 {/* WhatsApp */}
                 <a
-                  href="https://wa.me/918756327246"
+                  href="https://wa.me/916306661981"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="WhatsApp"
@@ -280,7 +280,7 @@ export const Footer = ({ onNavigate }) => {
 
                 {/* Instagram */}
                 <a
-                  href="https://www.instagram.com/maurya_construction_03?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
+                  href="https://www.instagram.com/badhanti_construction?stkn=MWNrM3RkcXFlNWVxMw=="
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
@@ -297,6 +297,25 @@ export const Footer = ({ onNavigate }) => {
                   "
                 >
                   <FaInstagram />
+                </a>
+                 <a
+                  href="https://www.facebook.com/share/14p4TLvHio8/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="
+                    inline-flex
+                    items-center
+                    justify-center
+                    text-2xl
+                    sm:text-3xl
+                    text-blue-400
+                    hover:text-blue-300
+                    hover:-translate-y-0.5
+                    transition-all
+                  "
+                >
+                 <FaFacebook />
                 </a>
 
               </div>

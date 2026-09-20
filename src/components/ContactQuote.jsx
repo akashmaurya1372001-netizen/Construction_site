@@ -745,7 +745,7 @@ export const ContactQuote = ({ preselectedService = "" }) => {
                     className="
                       w-full
                       sm:w-auto
-                      min-w-[170px]
+                      min-w-170px
                       inline-flex
                       items-center
                       justify-center
@@ -863,7 +863,7 @@ export const ContactQuote = ({ preselectedService = "" }) => {
                     </div>
 
                     <div className="text-stone-400 mt-0.5 font-bold">
-                      MR Badhanti Prasad Maurya
+                      MR Vishal Maurya
                     </div>
                   </div>
                 </div>
@@ -887,16 +887,7 @@ export const ContactQuote = ({ preselectedService = "" }) => {
                     </div>
 
                     <div className="text-stone-400 mt-0.5">
-                      <a
-                        href="tel:+918756327246"
-                        className="
-                          hover:text-amber-400
-                          transition-colors
-                          font-bold
-                        "
-                      >
-                        +91 8756327246
-                      </a>
+                      
 
                       <br />
 
@@ -929,7 +920,7 @@ export const ContactQuote = ({ preselectedService = "" }) => {
 
                   <div className="min-w-0">
                     <div className="font-bold text-white">
-                      MAIL
+                      EMAIL
                     </div>
 
                     <a

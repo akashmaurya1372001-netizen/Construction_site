@@ -38,7 +38,7 @@ export const Services = ({ onSelectServiceForQuote }) => {
                Varanasi Construction Services
             </h2>
             <p className="mt-4 text-stone-300 text-base sm:text-lg">
-              Comprehensive general contracting capabilities from initial soil testing and zoning approvals to complete physical delivery.
+              Comprehensive general contracting capabilities
             </p>
           </div>
 
@@ -69,9 +69,7 @@ export const Services = ({ onSelectServiceForQuote }) => {
                     }`}>
                       <IconComponent className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-stone-800 text-stone-300 border border-stone-700">
-                      {service.specs}
-                    </span>
+                    
                   </div>
 
                   <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">

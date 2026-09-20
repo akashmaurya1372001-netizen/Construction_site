@@ -32,7 +32,7 @@ export const SERVICES_DATA = [
     emoji: '🏢',
     iconName: 'Building2',
     summary: '',
-    features: ['Corporate Headquarters', 'Retail Centers', 'Hospitality & Dining', 'Medical Facilities'],
+    features: ['Corporate office', 'Retail Centers', 'Hospitality & Dining', 'Medical Facilities'],
    // specs: 'LEED Certified Standards'
   },
   {
@@ -41,10 +41,10 @@ export const SERVICES_DATA = [
     emoji: '🔨',
     iconName: 'Hammer',
     summary: '',
-    features: ['Structural Reinforcement', 'Historic Preservation', 'Adaptive Reuse', 'Commercial Tenant Fit-Out'],
+    features: [ 'Interior & Finishing', 'Adaptive Reuse', 'Commercial Tenant Fit-Out'],
     //specs: 'Zero-Downtime Execution'
   },
-  {
+ /* {
     id: 'interior',
     title: 'Interior & Finishing',
     emoji: '🛠️',
@@ -52,7 +52,7 @@ export const SERVICES_DATA = [
     summary: '',
     features: ['Bespoke Millwork', 'Acoustic Ceilings', 'Architectural Glazing', 'Industrial Epoxy & Stone'],
    // specs: 'Sub-Millimeter Tolerances'
-  }
+  }*/
 ];
 
 export const PROJECTS_DATA = [
