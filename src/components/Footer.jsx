@@ -1,22 +1,14 @@
-
-import React from 'react';
-import {
-  Phone,
-  Mail,
-  MapPin,
-  ArrowUp,
-  ShieldCheck
-} from 'lucide-react';
+import React from "react";
+import { Phone, Mail, MapPin, ArrowUp, ShieldCheck } from "lucide-react";
 
 import logo from "../assets/Bccwhite.png";
-import { FaWhatsapp, FaInstagram  ,FaFacebook} from "react-icons/fa";
+import { FaWhatsapp, FaInstagram, FaFacebook } from "react-icons/fa";
 
 export const Footer = ({ onNavigate }) => {
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
@@ -30,7 +22,6 @@ export const Footer = ({ onNavigate }) => {
         border-stone-800
       "
     >
-
       {/* Main Footer Container */}
       <div
         className="
@@ -46,7 +37,6 @@ export const Footer = ({ onNavigate }) => {
           lg:py-14
         "
       >
-
         {/* ================= MAIN FOOTER ================= */}
         <div
           className="
@@ -59,7 +49,6 @@ export const Footer = ({ onNavigate }) => {
             lg:gap-12
           "
         >
-
           {/* ================= BRAND INFO ================= */}
           <div
             className="
@@ -68,10 +57,8 @@ export const Footer = ({ onNavigate }) => {
               space-y-4
             "
           >
-
             {/* Logo */}
             <div className="flex items-center">
-
               <img
                 src={logo}
                 alt="Badhanti Construction Contractor logo"
@@ -85,7 +72,6 @@ export const Footer = ({ onNavigate }) => {
                   object-contain
                 "
               />
-
             </div>
 
             {/* Trust Badge */}
@@ -101,7 +87,6 @@ export const Footer = ({ onNavigate }) => {
                 pt-1
               "
             >
-
               <ShieldCheck
                 className="
                   w-4
@@ -111,14 +96,9 @@ export const Footer = ({ onNavigate }) => {
                 "
               />
 
-              <span>
-                Trusted Construction Contractor
-              </span>
-
+              <span>Trusted Construction Contractor</span>
             </div>
-
           </div>
-
 
           {/* ================= CONTACT ================= */}
           <div
@@ -126,9 +106,9 @@ export const Footer = ({ onNavigate }) => {
               sm:col-span-1
               lg:col-span-4
               space-y-4
+              mx-10
             "
           >
-
             <h4
               className="
                 text-xs
@@ -142,7 +122,6 @@ export const Footer = ({ onNavigate }) => {
               Estimating Office
             </h4>
 
-
             <div
               className="
                 space-y-3
@@ -152,7 +131,6 @@ export const Footer = ({ onNavigate }) => {
                 font-mono
               "
             >
-
               {/* ================= ADDRESS ================= */}
               <div
                 className="
@@ -161,7 +139,6 @@ export const Footer = ({ onNavigate }) => {
                   gap-3
                 "
               >
-
                 <MapPin
                   className="
                     w-4
@@ -173,13 +150,9 @@ export const Footer = ({ onNavigate }) => {
                 />
 
                 <span className="leading-relaxed">
-                  MAA GAYATRI NAGAR COLONY,
-                  CHANDPUR, VARANASI,
-                  UP-221106
+                  MAA GAYATRI NAGAR COLONY, CHANDPUR, VARANASI, UP-221106
                 </span>
-
               </div>
-
 
               {/* ================= PHONE ================= */}
               <div
@@ -189,7 +162,6 @@ export const Footer = ({ onNavigate }) => {
                   gap-3
                 "
               >
-
                 <Phone
                   className="
                     w-4
@@ -209,9 +181,7 @@ export const Footer = ({ onNavigate }) => {
                 >
                   +91 6306661981
                 </a>
-
               </div>
-
 
               {/* ================= EMAIL ================= */}
               <div
@@ -222,7 +192,6 @@ export const Footer = ({ onNavigate }) => {
                   min-w-0
                 "
               >
-
                 <Mail
                   className="
                     w-4
@@ -242,20 +211,18 @@ export const Footer = ({ onNavigate }) => {
                 >
                   badhanticonstruction@gmail.com
                 </a>
-
               </div>
 
-
               {/* ================= SOCIAL MEDIA ================= */}
+             
               <div
                 className="
                   flex
                   items-center
-                  gap-4
+                  gap-15
                   pt-2
                 "
               >
-
                 {/* WhatsApp */}
                 <a
                   href="https://wa.me/916306661981"
@@ -277,7 +244,6 @@ export const Footer = ({ onNavigate }) => {
                   <FaWhatsapp />
                 </a>
 
-
                 {/* Instagram */}
                 <a
                   href="https://www.instagram.com/badhanti_construction?stkn=MWNrM3RkcXFlNWVxMw=="
@@ -298,7 +264,7 @@ export const Footer = ({ onNavigate }) => {
                 >
                   <FaInstagram />
                 </a>
-                 <a
+                <a
                   href="https://www.facebook.com/share/14p4TLvHio8/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -315,15 +281,11 @@ export const Footer = ({ onNavigate }) => {
                     transition-all
                   "
                 >
-                 <FaFacebook />
+                  <FaFacebook />
                 </a>
-
               </div>
-
             </div>
-
           </div>
-
 
           {/* ================= BACK TO TOP ================= */}
           <div
@@ -336,7 +298,6 @@ export const Footer = ({ onNavigate }) => {
               lg:justify-end
             "
           >
-
             <button
               onClick={scrollToTop}
               className="
@@ -362,19 +323,12 @@ export const Footer = ({ onNavigate }) => {
                 sm:w-auto
               "
             >
-
               <ArrowUp className="w-3.5 h-3.5" />
 
-              <span>
-                Back to top
-              </span>
-
+              <span>Back to top</span>
             </button>
-
           </div>
-
         </div>
-
 
         {/* ================= BOTTOM BAR ================= */}
         <div
@@ -400,16 +354,12 @@ export const Footer = ({ onNavigate }) => {
             sm:text-left
           "
         >
-
           <div className="leading-relaxed">
-            © {new Date().getFullYear()} Badhanti Construction Contractors.
-            All rights reserved.
+            © {new Date().getFullYear()} Badhanti Construction Contractors. All
+            rights reserved.
           </div>
-
         </div>
-
       </div>
-
     </footer>
   );
 };

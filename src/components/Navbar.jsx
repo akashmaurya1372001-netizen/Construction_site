@@ -11,7 +11,7 @@ export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
     { id: 'services', label: 'Services' },
    // { id: 'projects', label: 'Projects' },
    
-    { id: 'why-us', label: 'Why Choose Us' },
+    { id: 'why-us', label: 'Why Us' },
     
     { id: 'contact', label: 'Contact' }
   ];
@@ -39,7 +39,7 @@ export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
             className="flex items-center space-x-3 group"
           >
             <div className="flex items-center justify-center transition-colors">
-             <img src={logo} alt="bcc_logo" className='w-50 h-25 rounded-2xl' />
+             <img src={logo} alt="bcc_logo" className='max-w-40 max-h40  rounded-2xl' />
             </div>
             
           </a>
@@ -69,7 +69,7 @@ export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
           
 
           {/* Action CTAs */}
-          <div className="hidden sm:flex items-center space-x-5 ml-auto">
+          <div className="hidden sm:flex items-center space-x-10 ml-auto">
             
                 {/* WhatsApp */}
                 <a
@@ -100,7 +100,7 @@ export const Navbar = ({ activeSection, onNavigate, onOpenQuote }) => {
               <div className="w-8 h-8 rounded-full bg-stone-800 flex items-center justify-center text-amber-400">
                 <Phone className="w-4 h-4" />
               </div>
-              <span className="hidden xl:inline">+91 6306661981</span>
+              <span className="hidden xl:inline">+916306661981</span>
             </a>
 
             <button
