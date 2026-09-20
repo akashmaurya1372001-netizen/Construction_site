@@ -21,7 +21,7 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
+  body {min-width: 1024px ;
     @apply bg-background text-foreground;
   }
 }
